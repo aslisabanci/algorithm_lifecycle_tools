@@ -1,2 +1,2 @@
-# update_algorithm_model
-Update your model on Algorithmia and publish a new version
+# Algorithm Lifecycle Tools [WIP]
+Wraps common functionality for Algorithmia users' frequently implemented model + algorithm publishing workflows
