@@ -168,3 +168,34 @@ class ModelPublisher:
         )
         return response.json()["environments"]
 
+    def write_algo_environments_json(outfile="envs.json"):
+        """Write environment list to JSON."""
+        """
+        Envs is list of dicts showing envs available on cluster, of format:
+        [{
+            "id": "87a294f5-441f-41b9-a16e-209618df9612",
+            "display_name": "Python 3.7",
+            ...
+        },]
+        """
+        envs_long = self._get_algo_environments()
+        envs_short = self._subset_environment_props(envs_long)
+        with open(outfile, "w") as f:
+            json.dump(envs, f)
+        logger.info("{} environments available, listed in {}".format(
+            len(envs), outfile))
+        return None
+
+    @staticmethod
+    def _subset_environment_props(envs: list) -> list:
+        """Subset environment details of interest for concise output.""" 
+        properties = ["id", "display_name", "description", "machine_type"]
+        envs_short = []
+        for env in envs_long:
+            env_props = {}
+            for prop in properties:
+                env_props[prop] = env[prop]
+            envs_short.append(env_props)
+        return envs_short
+
+
