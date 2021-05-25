@@ -1,2 +1,2 @@
-# Algorithm Lifecycle Tools [WIP]
-Wraps common functionality for Algorithmia users' frequently implemented model + algorithm publishing workflows
+# Algorithm Lifecycle Tools - MOVED!
+To: https://github.com/algorithmiaio/algo-lifecycle-tools
